@@ -3,7 +3,7 @@ package entities;
 /**
  * Created by hotelkey on 2/16/17.
  */
-public class Institution extends  AbstractEntity {
+public class Institution extends AbstractEntity {
     String name;
     String address;
     String email;
