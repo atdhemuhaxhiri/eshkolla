@@ -4,15 +4,15 @@ import entities.AbstractEntity;
 public class Subject extends AbstractEntity {
 
     String name;
-    String institutionId;
-    String SyllabusId;
+    Institution institutionId;
+    Syllabus SyllabusId;
 
 
-    public String getSyllabusId() {
+    public Syllabus getSyllabusId() {
         return SyllabusId;
     }
 
-    public void setSyllabusId(String syllabus) {
+    public void setSyllabusId(Syllabus syllabus) {
         SyllabusId = syllabus;
     }
 
@@ -24,11 +24,11 @@ public class Subject extends AbstractEntity {
         this.name = name;
     }
 
-    public String getInstitutionId() {
+    public Institution getInstitutionId() {
         return institutionId;
     }
 
-    public void setInstitutionId(String institutionId) {
+    public void setInstitutionId(Institution institutionId) {
         this.institutionId = institutionId;
     }
 
