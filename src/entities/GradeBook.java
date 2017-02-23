@@ -5,6 +5,9 @@ package entities;
  */
 public class GradeBook extends AbstractEntity {
     String student_id;
+    String proffesore_id;
+    String subject_id;
+    int    grade;
 
     public String getStudent_id() {
         return student_id;
@@ -38,9 +41,7 @@ public class GradeBook extends AbstractEntity {
         this.grade = grade;
     }
 
-    String proffesore_id;
-    String subject_id;
-    int    grade;
+
 
 
 }
