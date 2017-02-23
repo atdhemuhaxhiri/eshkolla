@@ -4,16 +4,24 @@ import entities.AbstractEntity;
 public class Subject extends AbstractEntity {
 
     String name;
-    Institution institutionId;
-    Syllabus SyllabusId;
+    Institution institution;
+    Syllabus syllabus;
 
 
-    public Syllabus getSyllabusId() {
-        return SyllabusId;
+    public Institution getInstitution() {
+        return institution;
     }
 
-    public void setSyllabusId(Syllabus syllabus) {
-        SyllabusId = syllabus;
+    public void setInstitution(Institution institution) {
+        this.institution = institution;
+    }
+
+    public Syllabus getSyllabus() {
+        return syllabus;
+    }
+
+    public void setSyllabus(Syllabus syllabus) {
+        this.syllabus = syllabus;
     }
 
     public String getName() {
@@ -24,13 +32,7 @@ public class Subject extends AbstractEntity {
         this.name = name;
     }
 
-    public Institution getInstitutionId() {
-        return institutionId;
-    }
 
-    public void setInstitutionId(Institution institutionId) {
-        this.institutionId = institutionId;
-    }
 
 
 

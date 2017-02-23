@@ -5,7 +5,7 @@ package entities;
  */
 public class UserType extends AbstractEntity {
     String name;
-    String desctription;
+    String description;
 
     public String getName() {
         return name;
@@ -15,11 +15,11 @@ public class UserType extends AbstractEntity {
         this.name = name;
     }
 
-    public String getDesctription() {
-        return desctription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesctription(String desctription) {
-        this.desctription = desctription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

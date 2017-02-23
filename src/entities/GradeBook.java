@@ -4,33 +4,34 @@ package entities;
  * Created by Lanti on 23/2/2017.
  */
 public class GradeBook extends AbstractEntity {
-    String student_id;
-    String proffesore_id;
-    String subject_id;
+    User student;
+    Professor professor;
+    Subject subject;
     int    grade;
 
-    public String getStudent_id() {
-        return student_id;
+
+    public User getStudent() {
+        return student;
     }
 
-    public void setStudent_id(String student_id) {
-        this.student_id = student_id;
+    public void setStudent(User student) {
+        this.student = student;
     }
 
-    public String getProffesore_id() {
-        return proffesore_id;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public void setProffesore_id(String proffesore_id) {
-        this.proffesore_id = proffesore_id;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
-    public String getSubject_id() {
-        return subject_id;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setSubject_id(String subject_id) {
-        this.subject_id = subject_id;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     public int getGrade() {

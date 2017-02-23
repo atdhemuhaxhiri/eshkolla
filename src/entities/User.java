@@ -1,15 +1,17 @@
 package entities;
 
+import java.util.Date;
+
 /**
  * Created by Admin on 2/22/2017.
  */
-public class Users extends AbstractEntity {
+public class User extends AbstractEntity {
     String name;
     String surname;
     String username;
     String password;
-    String birthday;
-    String gender;
+    Date birthday;
+    Gender gender;
     String address;
     String email;
     UserType userType;
@@ -47,19 +49,19 @@ public class Users extends AbstractEntity {
         this.password = password;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
