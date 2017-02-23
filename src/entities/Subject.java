@@ -1,3 +1,5 @@
+package entities;
+
 import entities.AbstractEntity;
 public class Subject extends AbstractEntity {
 
