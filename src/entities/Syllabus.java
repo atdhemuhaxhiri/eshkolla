@@ -5,7 +5,7 @@ package entities;
  */
 public class Syllabus extends AbstractEntity {
     String literature;
-    String institutionId;
+    Institution institution;
 
     public String getLiterature() {
         return literature;
@@ -15,12 +15,12 @@ public class Syllabus extends AbstractEntity {
         this.literature = literature;
     }
 
-    public String getInstitutionId() {
-        return institutionId;
+    public Institution getInstitution() {
+        return institution;
     }
 
-    public void setInstitutionId(String institutionId) {
-        this.institutionId = institutionId;
+    public void setInstitution(Institution institution) {
+        this.institution = institution;
     }
 }
 

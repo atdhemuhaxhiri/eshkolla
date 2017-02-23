@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.List;
+
 /**
  * Created by hotelkey on 2/16/17.
  */
@@ -10,7 +12,8 @@ public class Institution extends AbstractEntity {
     String mob;
     String website;
     InstitutionType institutionType;
-
+    List<User> student;
+    List<User> professor;
     public String getName() {
         return name;
     }

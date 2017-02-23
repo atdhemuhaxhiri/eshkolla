@@ -5,9 +5,9 @@ import entities.AbstractEntity;
 /**
  * Created by LENOVO on 2/22/2017.
  */
-public class ProffesorType extends AbstractEntity {
+public class ProfessorType extends AbstractEntity {
     String type;
-    String descripion;
+    String description;
 
     public String getType() {
         return type;
@@ -17,11 +17,11 @@ public class ProffesorType extends AbstractEntity {
         this.type = type;
     }
 
-    public String getDescripion() {
-        return descripion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripion(String descripion) {
-        this.descripion = descripion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
