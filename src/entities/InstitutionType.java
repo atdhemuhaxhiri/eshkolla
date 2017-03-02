@@ -22,4 +22,13 @@ public class InstitutionType extends AbstractEntity {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "InstitutionType{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                '}';
+    }
 }
