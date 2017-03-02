@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by hotelkey on 2/16/17.
  */
 public class AbstractEntity {
-    int id;
+    String id;
     Date createdAt;
     Date updatedAt;
     Date deletedAt;
@@ -14,11 +14,11 @@ public class AbstractEntity {
     String updatedBy;
     String deletedBy;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
