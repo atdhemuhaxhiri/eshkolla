@@ -9,32 +9,12 @@ import java.util.List;
 /**
  * Created by hotelkey on 2/24/17.
  */
-public class InstitutionService {
-    private static PreparedStatement preparedStatement;
-    private static Connection connection;
-    private static ResultSet resultSet = null;
-    private static Statement statement = null;
+public class InstitutionService extends AbstractService{
+    public static int insert(Institution institution) {
 
-    private static void close() {
         try {
-            if (resultSet != null) {
-                resultSet.close();
-            }
+            connection = utilities.Connections.getConnection();
 
-            if (statement != null) {
-                statement.close();
-            }
-
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    public static int insert(entities.Institution institution) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
-        try {
             preparedStatement = connection.prepareStatement(InstitutionQueries.INSERT);
             //preparedStatement.setInt(1, user.getId());
             preparedStatement.setString(1, institution.getId());
@@ -46,7 +26,7 @@ public class InstitutionService {
             preparedStatement.setString(7, institution.getInstitutionType().getId());
             return preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return -1;
         } finally {
@@ -54,9 +34,11 @@ public class InstitutionService {
         }
     }
 
-    public static int update(entities.Institution institution) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static int update(entities.Institution institution) {
+
         try {
+            connection = utilities.Connections.getConnection();
+
             preparedStatement = connection.prepareStatement(InstitutionQueries.UPDATE);
 
             preparedStatement.setString(1, institution.getName());
@@ -68,7 +50,7 @@ public class InstitutionService {
             preparedStatement.setString(7, institution.getId());
             return preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return -1;
         } finally {
@@ -76,15 +58,16 @@ public class InstitutionService {
         }
     }
 
-    public static int delete(entities.Institution institution) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static int delete(entities.Institution institution) {
+
         try {
+            connection = utilities.Connections.getConnection();
             preparedStatement = connection.prepareStatement(InstitutionQueries.DELETE);
 
             preparedStatement.setString(1, institution.getId());
             return preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return -1;
         } finally {
@@ -92,14 +75,15 @@ public class InstitutionService {
         }
     }
 
-    public static List<Institution> getAll() throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static List<Institution> getAll() {
+
         try {
+            connection = utilities.Connections.getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(InstitutionQueries.GET_ALL);
             return writeResultSet(resultSet);
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
         } finally {
@@ -107,15 +91,17 @@ public class InstitutionService {
         }
     }
 
-    public static entities.Institution getById(String id) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static entities.Institution getById(String id) {
+
         try {
+            connection = utilities.Connections.getConnection();
+
             preparedStatement = connection.prepareStatement(InstitutionQueries.GET_BY_ID);
             preparedStatement.setString(1, id);
             resultSet = preparedStatement.getResultSet();
             return writeResultSet(resultSet).get(0);
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
         } finally {

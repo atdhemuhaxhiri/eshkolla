@@ -28,6 +28,7 @@ public class AbstractService {
                 connection.close();
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

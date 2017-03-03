@@ -13,67 +13,58 @@ import java.util.UUID;
 public class InstitutionTypeTest {
     public static void main(String[] args){
 //        testInsert();
+//        testUpdate();
+//        testDelete();
         testGetAll();
+//        testGetById();
     }
 
     private static void testInsert(){
         InstitutionType institutionType = new InstitutionType();
         institutionType.setId(UUID.randomUUID().toString());
-        institutionType.setName("FIEK");
-        institutionType.setDepartment("Computer science");
+        institutionType.setName("UBT");
+        institutionType.setDepartment("Computer science & Eng");
 
-        try {
-            InstitutionTypeService.insert(institutionType);
+        if (InstitutionTypeService.insert(institutionType) > 0){
             System.out.println("Recordi u insertu me sukses");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+        } else {
             System.out.println("Rekordi deshtoi per tu insertuar");
         }
     }
 
     private static void testUpdate(){
         InstitutionType institutionType = new InstitutionType();
-        institutionType.setId("");
-        institutionType.setName("FIEK");
-        institutionType.setDepartment("Computer science 2");
+        institutionType.setId("c619ffa4-06f8-443a-a549-84c4315a63b9");
+        institutionType.setName("FIEK #1");
+        institutionType.setDepartment("Computer science & Math");
 
-        try {
-            InstitutionTypeService.update(institutionType);
+        if (InstitutionTypeService.update(institutionType) > 0) {
+
             System.out.println("Recordi u ndryshua me sukses");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+        } else {
             System.out.println("Rekordi deshtoi per tu ndryshuar");
         }
     }
 
     private static void testDelete(){
-        try {
-            InstitutionTypeService.delete("");
+        if (InstitutionTypeService.delete("c619ffa4-06f8-443a-a549-84c4315a63b9") > 0) {
             System.out.println("Rekordi u fshi me sukses");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+        } else {
             System.out.println("Rekordi deshtoi te fshihet");
         }
     }
 
     private static void testGetAll(){
-        try {
-            List<InstitutionType> institutionTypeList = InstitutionTypeService.getAll();
-            for (InstitutionType institutionType : institutionTypeList) {
-                System.out.println(institutionType);
-                System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+        List<InstitutionType> institutionTypeList = InstitutionTypeService.getAll();
+        for (InstitutionType institutionType : institutionTypeList) {
+            System.out.println(institutionType);
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
         }
+
     }
 
     private static void testGetById(){
-        try {
-            InstitutionType institutionType = InstitutionTypeService.getById("");
-            System.out.println(institutionType);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
+        InstitutionType institutionType = InstitutionTypeService.getById("c619ffa4-06f8-443a-a549-84c4315a63b9");
+        System.out.println(institutionType);
     }
 }

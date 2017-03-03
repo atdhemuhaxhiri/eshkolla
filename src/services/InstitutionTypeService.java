@@ -13,9 +13,10 @@ import java.util.List;
 public class InstitutionTypeService extends AbstractService{
 
 
-    public static int insert(entities.InstitutionType institutionType) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static int insert(entities.InstitutionType institutionType) {
+
         try {
+            connection = utilities.Connections.getConnection();
             preparedStatement = connection.prepareStatement(InstitutionTypeQueries.INSERT);
             //preparedStatement.setInt(1, user.getId());
             preparedStatement.setString(1, institutionType.getId());
@@ -23,7 +24,7 @@ public class InstitutionTypeService extends AbstractService{
             preparedStatement.setString(3, institutionType.getDepartment());
             return preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return -1;
         } finally {
@@ -31,9 +32,11 @@ public class InstitutionTypeService extends AbstractService{
         }
     }
 
-    public static int update(entities.InstitutionType institutionType) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static int update(entities.InstitutionType institutionType) {
+
         try {
+            connection = utilities.Connections.getConnection();
+
             preparedStatement = connection.prepareStatement(InstitutionTypeQueries.UPDATE);
 
             preparedStatement.setString(1, institutionType.getName());
@@ -41,7 +44,7 @@ public class InstitutionTypeService extends AbstractService{
             preparedStatement.setString(3, institutionType.getId());
             return preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return -1;
         } finally {
@@ -49,15 +52,17 @@ public class InstitutionTypeService extends AbstractService{
         }
     }
 
-    public static int delete(String id) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static int delete(String id) {
+
         try {
+            connection = utilities.Connections.getConnection();
+
             preparedStatement = connection.prepareStatement(InstitutionTypeQueries.DELETE);
 
             preparedStatement.setString(1, id);
             return preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return -1;
         } finally {
@@ -65,14 +70,16 @@ public class InstitutionTypeService extends AbstractService{
         }
     }
 
-    public static List<InstitutionType> getAll() throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static List<InstitutionType> getAll() {
+
         try {
+            connection = utilities.Connections.getConnection();
+
             statement = connection.createStatement();
             resultSet = statement.executeQuery(InstitutionTypeQueries.GET_ALL);
             return writeResultSet(resultSet);
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
         } finally {
@@ -80,15 +87,18 @@ public class InstitutionTypeService extends AbstractService{
         }
     }
 
-    public static entities.InstitutionType getById(String id) throws ClassNotFoundException, SQLException {
-        connection = utilities.Connections.getConnection();
+    public static entities.InstitutionType getById(String id) {
+
         try {
+            connection = utilities.Connections.getConnection();
+
             preparedStatement = connection.prepareStatement(InstitutionTypeQueries.GET_BY_ID);
             preparedStatement.setString(1, id);
-            resultSet = preparedStatement.getResultSet();
-            return writeResultSet(resultSet).get(0);
+            resultSet = preparedStatement.executeQuery();
+            List<entities.InstitutionType> list = writeResultSet(resultSet);
+            return null != list && !list.isEmpty() ? list.get(0) : null;
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
         } finally {
