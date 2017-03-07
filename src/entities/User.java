@@ -17,6 +17,7 @@ public class User extends AbstractEntity {
     UserType userType;
     String mob;
 
+
     public String getName() {
         return name;
     }
@@ -95,5 +96,22 @@ public class User extends AbstractEntity {
 
     public void setMob(String mob) {
         this.mob = mob;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", birthday=" + birthday +
+                ", gender=" + gender +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", userType=" + userType +
+                ", mob='" + mob + '\'' +
+                '}';
     }
 }

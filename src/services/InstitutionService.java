@@ -110,8 +110,7 @@ public class InstitutionService extends AbstractService{
     }
 
 
-    private static List<entities.Institution> writeResultSet(
-            ResultSet resultSet) throws SQLException {
+    private static List<entities.Institution> writeResultSet(ResultSet resultSet) throws SQLException {
         // ResultSet is initially before the first data set
 
         List<entities.Institution> items =

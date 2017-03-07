@@ -1,37 +1,36 @@
 package services;
 
+
 /**
- * Created by PorositWeb on 07-Mar-17.
+ * Created by Admin on 3/3/2017.
  */
 public class UserQueries {
     public static String INSERT = "INSERT INTO `users`\n" +
             "(`id`,\n" +
-                    "`name`,\n" +
-                    "`surname`,\n" +
-                    "`username`,\n" +
-                    "`password`,\n" +
-                    "`birthday`,\n" +
-                    "`gender`,\n" +
-                    "`address`,\n" +
-                    "`email`,\n" +
-                    "`usertype`,\n" +
-                    "`mob`,\n" +
-                    "`user_type_id`)\n" +
-                    "VALUES\n" +
-                    "(?,\n" +
-                    " ?,\n" +
-                    " ?,\n" +
-                    " ?,\n" +
-                    " ?,\n" +
-                    " ?,\n" +
-                    " ?);\n" +
-                    " ?);\n" +
-                    " ?);\n" +
-                    " ?);\n" +
-                    " ?);\n" +
-                    ";";
-
-    public static String UPDATE = "UPDATE `user`\n" +
+            "`name`,\n" +
+            "`surname`,\n" +
+            "`username`,\n" +
+            "`password`,\n" +
+            "`birthday`,\n" +
+            "`gender`,\n" +
+            "`address`,\n" +
+            "`email`,\n" +
+            "`user_type_id`,\n" +
+            "`mob`)\n" +
+            "VALUES\n" +
+            "(?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?,\n" +
+            " ?)\n" +
+            ";";
+    public static String UPDATE = "UPDATE `users`\n" +
             "SET\n" +
             "`name` = ?,\n" +
             "`surname` = ?,\n" +
@@ -41,18 +40,18 @@ public class UserQueries {
             "`gender` = ?,\n" +
             "`address` = ?,\n" +
             "`email` = ?,\n" +
-            "`userType` = ?,\n" +
-            "`mob` = ?,\n" +
-            "`user_type_id` = ?\n" +
-            "WHERE `id` = ?;";
+            "`user_type_id` = ?,\n" +
+            "`mob` = ?\n" +
+            "WHERE id = ?;";
 
-    public static String DELETE = "DELETE FROM `user`\n" +
+    public static String DELETE = "DELETE FROM `users`\n" +
             "WHERE id = ?;";
 
     public static String GET_ALL = "SELECT *\n" +
-            "FROM `user`;";
+            "FROM `users`;";
 
     public static String GET_BY_ID = "SELECT *\n" +
-            "FROM `user`\n" +
+            "FROM `users`\n" +
             "WHERE id = ?;";
+
 }
