@@ -35,22 +35,10 @@ public class InstitutionQueries {
     public static String DELETE = "DELETE FROM `institution`\n" +
             "WHERE id = ?;";
 
-    public static String GET_ALL = "SELECT `institution`.`id`,\n" +
-            "    `institution`.`name`,\n" +
-            "    `institution`.`address`,\n" +
-            "    `institution`.`email`,\n" +
-            "    `institution`.`mob`,\n" +
-            "    `institution`.`website`,\n" +
-            "    `institution`.`institution_type_id`\n" +
+    public static String GET_ALL = "SELECT *\n" +
             "FROM `institution`;";
 
-    public static String GET_BY_ID = "SELECT `institution`.`id`,\n" +
-            "    `institution`.`name`,\n" +
-            "    `institution`.`address`,\n" +
-            "    `institution`.`email`,\n" +
-            "    `institution`.`mob`,\n" +
-            "    `institution`.`website`,\n" +
-            "    `institution`.`institution_type_id`\n" +
+    public static String GET_BY_ID = "SELECT *\n" +
             "FROM `institution`\n" +
             "WHERE id = ?;";
 }
