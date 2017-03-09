@@ -106,6 +106,25 @@ public class InstitutionTypeService extends AbstractService{
         }
     }
 
+    public static entities.InstitutionType getById(String id
+            , Connection con
+    , PreparedStatement ps, ResultSet rs) {
+
+        try {
+//            connection = utilities.Connections.getConnection();
+
+            ps = con.prepareStatement(InstitutionTypeQueries.GET_BY_ID);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            List<entities.InstitutionType> list = writeResultSet(rs);
+            return null != list && !list.isEmpty() ? list.get(0) : null;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     private static List<entities.InstitutionType> writeResultSet(
             ResultSet resultSet) throws SQLException {

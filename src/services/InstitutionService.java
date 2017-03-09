@@ -91,6 +91,22 @@ public class InstitutionService extends AbstractService{
         }
     }
 
+    public static List<Institution> getAllLazy() {
+
+        List<Institution> institutions = getAll();
+
+        for(Institution institution : institutions){
+            institution.setStudents(
+                    UserService.getAllByType(
+                            institution.getId(), "student"));
+            institution.setProfessors(UserService.getAllByType(
+                    institution.getId(), "proffesore"));
+            institution.setAssistants(UserService.getAllByType(
+                    institution.getId(), "assistant"));
+        }
+        return institutions;
+    }
+
     public static entities.Institution getById(String id) {
 
         try {
@@ -124,7 +140,10 @@ public class InstitutionService extends AbstractService{
             item.setEmail(resultSet.getString("email"));
             item.setMob(resultSet.getString("mob"));
             item.setWebsite(resultSet.getString("website"));
-//            item.setInstitutionType(resultSet.getString("hourdescription"));
+            item.setInstitutionType(
+                    InstitutionTypeService.getById(
+                    resultSet.getString("institution_type_id"
+                    ), connection, preparedStatement, resultSet));
 
             items.add(item);
         }

@@ -87,7 +87,7 @@ public class UserTest {
     }
 
     private static void testGetAll(){
-        List<User> userList = UserService.getAll();
+        List<User> userList = UserService.getAll(null);
         for (User user : userList) {
             System.out.println(user);
             System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");

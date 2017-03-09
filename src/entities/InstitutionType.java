@@ -23,6 +23,13 @@ public class InstitutionType extends AbstractEntity {
         this.department = department;
     }
 
+    public InstitutionType(String id) {
+        this.id = id;
+    }
+
+    public InstitutionType() {
+    }
+
     @Override
     public String toString() {
         return "InstitutionType{" +

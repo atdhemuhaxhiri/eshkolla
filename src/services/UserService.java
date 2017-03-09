@@ -76,11 +76,12 @@ public class UserService extends AbstractService {
         }
 
     }
-    public static List<User> getAll(){
+    public static List<User> getAll(String query){
         try{
             connection = utilities.Connections.getConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery(UserQueries.GET_ALL);
+            resultSet = statement.executeQuery(null != query &&
+                    !query.isEmpty() ? query : UserQueries.GET_ALL);
             return writeResultSet(resultSet);
         }catch (SQLException | ClassNotFoundException a){
             a.printStackTrace();
@@ -89,6 +90,24 @@ public class UserService extends AbstractService {
             close();
         }
     }
+
+    public static List<User> getAllByType(String institutionId, String type){
+        try{
+            connection = utilities.Connections.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(
+                    UserQueries.GET_ALL_BY_TYPE
+                            .replace("[ut]", type)
+            .replace("[it]", institutionId));
+            return writeResultSet(resultSet);
+        }catch (SQLException | ClassNotFoundException a){
+            a.printStackTrace();
+            return null;
+        }finally {
+            close();
+        }
+    }
+
     public static entities.User getById(String id){
         try{
             connection = utilities.Connections.getConnection();
@@ -115,7 +134,8 @@ public class UserService extends AbstractService {
             item.setUsername(resultSet.getString("username"));
             item.setPassword(resultSet.getString("password"));
             item.setBirthday(resultset.getDate("birthday"));
-            if (resultset.getString("gender").equalsIgnoreCase("F")) {
+            if (resultset.getString("gender")
+                    .equalsIgnoreCase("F")) {
                 item.setGender(Gender.F);
             } else {
                 item.setGender(Gender.M);

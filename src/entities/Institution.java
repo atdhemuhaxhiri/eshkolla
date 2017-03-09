@@ -12,8 +12,9 @@ public class Institution extends AbstractEntity {
     String mob;
     String website;
     InstitutionType institutionType;
-    List<User> student;
-    List<User> professor;
+    List<User> students;
+    List<User> professors;
+    List<User> assistants;
 
 
     public String getName() {
@@ -64,4 +65,42 @@ public class Institution extends AbstractEntity {
         this.institutionType = institutionType;
     }
 
+    public List<User> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<User> students) {
+        this.students = students;
+    }
+
+    public List<User> getProfessors() {
+        return professors;
+    }
+
+    public void setProfessors(List<User> professors) {
+        this.professors = professors;
+    }
+
+    public List<User> getAssistants() {
+        return assistants;
+    }
+
+    public void setAssistants(List<User> assistants) {
+        this.assistants = assistants;
+    }
+
+    @Override
+    public String toString() {
+        return "Institution{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", mob='" + mob + '\'' +
+                ", website='" + website + '\'' +
+                ", institutionType=" + institutionType +
+                ", students=" + students +
+                ", professors=" + professors +
+                ", assistants=" + assistants +
+                '}';
+    }
 }
