@@ -7,11 +7,11 @@ public class SyllabusQueries {
     public static String INSERT = "INSERT INTO `syllabus`\n" +
             "(`id`,\n" +
             "`literature`,\n" +
-            "`institution`),\n" +
+            "`institution`)\n" +
             "VALUES\n" +
             "(?,\n" +
             " ?,\n" +
-            " ?),\n" +
+            " ?)\n" +
             ";";
     public static String UPDATE = "UPDATE `syllabus`" +
             "SET\n" +

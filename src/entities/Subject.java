@@ -1,6 +1,5 @@
 package entities;
 
-import entities.AbstractEntity;
 public class Subject extends AbstractEntity {
 
     String name;
@@ -31,9 +30,5 @@ public class Subject extends AbstractEntity {
     public void setName(String name) {
         this.name = name;
     }
-
-
-
-
 
 }

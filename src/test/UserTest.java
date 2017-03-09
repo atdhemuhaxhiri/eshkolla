@@ -12,8 +12,6 @@ import java.util.List;
  * Created by Admin on 3/5/2017.
  */
 
-
-
 public class UserTest {
     public static void main(String[] args){
         testGetAll();

@@ -29,9 +29,10 @@ public class SyllabusService extends AbstractService {
         try{
             connection = utilities.Connections.getConnection();
             preparedStatement = connection.prepareStatement(SyllabusQueries.UPDATE);
-            preparedStatement.setString(1,syllabus.getId());
-            preparedStatement.setString(2,syllabus.getLiterature());
-            preparedStatement.setString(3,syllabus.getInstitution().getId());
+
+            preparedStatement.setString(1,syllabus.getLiterature());
+            preparedStatement.setString(2,syllabus.getInstitution().getId());
+            preparedStatement.setString(3,syllabus.getId());
             return preparedStatement.executeUpdate();
         }catch (SQLException | ClassNotFoundException a){
             return -1;
@@ -39,11 +40,12 @@ public class SyllabusService extends AbstractService {
             close();
         }
     }
-    public static int delete(String syllabus){
+    public static int delete(String id){
+
         try {
             connection = utilities.Connections.getConnection();
             preparedStatement = connection.prepareStatement(SyllabusQueries.DELETE);
-//            preparedStatement.setString(1, syllabus.getId());
+            preparedStatement.setString(1, id);
             return preparedStatement.executeUpdate();
         }catch (SQLException | ClassNotFoundException a){
             a.printStackTrace();
@@ -52,7 +54,7 @@ public class SyllabusService extends AbstractService {
             close();
         }
     }
-    public static List<Syllabus> getAll(String id){
+    public static List<Syllabus> getAll(){
         try{
             connection = utilities.Connections.getConnection();
             statement = connection.createStatement();

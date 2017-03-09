@@ -11,7 +11,8 @@ public class InstitutionTypeQueries {
             "VALUES\n" +
             "(?,\n" +
             " ?,\n" +
-            " ?);";
+            " ?)" +
+            ";";
 
     public static String UPDATE = "UPDATE `institution_type`\n" +
             "SET\n" +

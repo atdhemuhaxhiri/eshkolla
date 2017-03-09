@@ -14,6 +14,8 @@ public class Institution extends AbstractEntity {
     InstitutionType institutionType;
     List<User> student;
     List<User> professor;
+
+
     public String getName() {
         return name;
     }
@@ -61,4 +63,5 @@ public class Institution extends AbstractEntity {
     public void setInstitutionType(InstitutionType institutionType) {
         this.institutionType = institutionType;
     }
+
 }

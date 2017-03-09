@@ -1,11 +1,17 @@
 package test;
 
+import entities.Syllabus;
+import services.SyllabusService;
+
+import java.util.List;
+import java.util.UUID;
+
 /**
  * Created by Admin on 3/5/2017.
  */
 
 
-/*
+
 public class SyllabusTest {
     public static void main(String[] args){
 //        testInsert();
@@ -64,5 +70,5 @@ public class SyllabusTest {
         System.out.println(syllabus);
     }
 }
-*/
+
 

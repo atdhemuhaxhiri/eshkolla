@@ -58,13 +58,13 @@ public class InstitutionService extends AbstractService{
         }
     }
 
-    public static int delete(entities.Institution institution) {
+    public static int delete(String id) {
 
         try {
             connection = utilities.Connections.getConnection();
             preparedStatement = connection.prepareStatement(InstitutionQueries.DELETE);
 
-            preparedStatement.setString(1, institution.getId());
+            preparedStatement.setString(1, id);
             return preparedStatement.executeUpdate();
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -95,7 +95,6 @@ public class InstitutionService extends AbstractService{
 
         try {
             connection = utilities.Connections.getConnection();
-
             preparedStatement = connection.prepareStatement(InstitutionQueries.GET_BY_ID);
             preparedStatement.setString(1, id);
             resultSet = preparedStatement.getResultSet();

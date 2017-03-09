@@ -7,6 +7,7 @@ public class Syllabus extends AbstractEntity {
     String literature;
     Institution institution;
 
+
     public String getLiterature() {
         return literature;
     }
@@ -22,5 +23,7 @@ public class Syllabus extends AbstractEntity {
     public void setInstitution(Institution institution) {
         this.institution = institution;
     }
+
+
 }
 

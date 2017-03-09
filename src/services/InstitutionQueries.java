@@ -19,7 +19,7 @@ public class InstitutionQueries {
             " ?,\n" +
             " ?,\n" +
             " ?,\n" +
-            " ?);\n" +
+            " ?)\n" +
             ";";
 
     public static String UPDATE = "UPDATE `institution`\n" +
