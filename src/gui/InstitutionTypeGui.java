@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by hotelkey on 3/9/17.
  */
-public class InstitutionTypeGui {
+public class InstitutionTypeGui extends JFrame{
     private JPanel panelMain;
     private JTextField txtName;
     private JTextArea taDescription;
@@ -38,6 +38,10 @@ public class InstitutionTypeGui {
             }
         });
 
+        pack();
+        setSize(400,400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
 
     }
 
