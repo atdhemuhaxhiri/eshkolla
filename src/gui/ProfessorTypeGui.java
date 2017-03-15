@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +23,9 @@ public class ProfessorTypeGui extends JFrame{
     private JButton deleteButton;
     private JTable tblProfessorTypes;
     private JPanel pnlMain;
+    private JScrollPane spTbl;
+
+    private ProfessorType selectedProfessorType;
 
     public ProfessorTypeGui(){
         loadAll();
@@ -34,9 +38,12 @@ public class ProfessorTypeGui extends JFrame{
                 professorType.setDescription(taDescription.getText());
 
                 if (ProfessorTypeService.insert(professorType) > 0){
+                    loadAll();
+                    txtType.setText("");
+                    taDescription.setText("");
                     JOptionPane.showMessageDialog(null,
                             "Professor type inserted successfully.");
-                    loadAll();
+
                 }else {
                     JOptionPane.showMessageDialog(null,
                             "Professor type failed to insert.");
@@ -47,16 +54,50 @@ public class ProfessorTypeGui extends JFrame{
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Delete\nType: " + txtType.getText()
-                        + "\nDescription: " + taDescription.getText());
+                if (null != selectedProfessorType && null != selectedProfessorType.getId() && !selectedProfessorType.getId().isEmpty()){
+                    int answer = JOptionPane.showConfirmDialog(null, "A jeni i sigurt?", "aaa", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (answer != JOptionPane.YES_OPTION){
+                        return;
+                    }
+
+                    if (ProfessorTypeService.delete(selectedProfessorType.getId()) > 0){
+                        selectedProfessorType = null;
+                        loadAll();
+                        JOptionPane.showMessageDialog(null, "Deleted successfully.");
+                    }else {
+                        JOptionPane.showMessageDialog(null, "Failed to delete.");
+                    }
+                }else {
+                    JOptionPane.showMessageDialog(null, "Please select type to delete.");
+                }
             }
         });
+
+        tblProfessorTypes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProfessorTypeMouseClicked(evt);
+            }
+        });
+        spTbl.setViewportView(tblProfessorTypes);
 
         pack();
         setSize(400,400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(pnlMain);
         setVisible(true);
+    }
+
+    private void tblProfessorTypeMouseClicked(MouseEvent evt) {
+        if (evt.getClickCount() == 2) {
+            tblProfessorTypes.getSelectedRow();
+            selectedProfessorType = new ProfessorType();
+            selectedProfessorType.setId(tblProfessorTypes.getModel().getValueAt(tblProfessorTypes.getSelectedRow(), 0).toString());
+            selectedProfessorType.setType(tblProfessorTypes.getModel().getValueAt(tblProfessorTypes.getSelectedRow(), 1).toString());
+            selectedProfessorType.setDescription(tblProfessorTypes.getModel().getValueAt(tblProfessorTypes.getSelectedRow(), 2).toString());
+
+            txtType.setText(selectedProfessorType.getType());
+            taDescription.setText(selectedProfessorType.getDescription());
+        }
     }
 
     private void loadAll(){

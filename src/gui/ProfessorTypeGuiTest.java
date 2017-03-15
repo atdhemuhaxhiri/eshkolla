@@ -5,8 +5,6 @@ package gui;
  */
 public class ProfessorTypeGuiTest {
     public static void main(String[] args){
-
         new ProfessorTypeGui();
-
     }
 }
