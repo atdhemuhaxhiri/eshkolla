@@ -49,4 +49,11 @@ public class Professor extends AbstractEntity{
     public void setProfessorType(ProfessorType professorType) {
         this.professorType = professorType;
     }
+
+    public Professor() {
+    }
+
+    public Professor(String id) {
+        this.id = id;
+    }
 }

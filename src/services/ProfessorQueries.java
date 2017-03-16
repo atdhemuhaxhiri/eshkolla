@@ -5,7 +5,7 @@ package services;
  */
 public class ProfessorQueries {
 
-    public static String INSERT = "INSERT INTO `professr`\n" +
+    public static String INSERT = "INSERT INTO `professor`\n" +
             "(`id`,\n" +
             "`user`,\n" +
             "`subject_id`,\n" +

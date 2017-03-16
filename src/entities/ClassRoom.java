@@ -1,22 +1,17 @@
 package entities;
 
+import java.util.List;
+
 /**
  * Created by Admin on 2/23/2017.
  */
 public class ClassRoom extends AbstractEntity {
-    User student;
     Subject subject;
     Professor professor;
     Professor assistant;
+    List<User> students;
+
     int roomNumber;
-
-    public User getStudent() {
-        return student;
-    }
-
-    public void setStudent(User student) {
-        this.student = student;
-    }
 
     public Subject getSubject() {
         return subject;
@@ -48,5 +43,13 @@ public class ClassRoom extends AbstractEntity {
 
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public List<User> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<User> students) {
+        this.students = students;
     }
 }

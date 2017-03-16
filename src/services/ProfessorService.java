@@ -104,7 +104,7 @@ public class ProfessorService extends AbstractService {
             item.setId(resultSet.getString("id"));
             item.setYear(resultSet.getInt("year"));
             item.setActive(resultSet.getBoolean("active"));
-
+            //item.setUser();
             items.add(item);
         }
         return items;

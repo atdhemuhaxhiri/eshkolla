@@ -1,2 +1,29 @@
 ALTER TABLE `eschool`.`proffesore_type`
 RENAME TO  `eschool`.`professore_type` ;
+
+CREATE TABLE `eschool`.`class_room_student` (
+  `class_room_id` CHAR(36) NOT NULL,
+  `student_id` CHAR(36) NOT NULL,
+  PRIMARY KEY (`class_room_id`, `student_id`),
+  INDEX `fk_student_id_1_idx` (`student_id` ASC),
+  CONSTRAINT `fk_class_room_id_1`
+    FOREIGN KEY (`class_room_id`)
+    REFERENCES `eschool`.`class_room` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_student_id_1`
+    FOREIGN KEY (`student_id`)
+    REFERENCES `eschool`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+ALTER TABLE `eschool`.`class_room`
+DROP FOREIGN KEY `fk_student_class_room_1`;
+ALTER TABLE `eschool`.`class_room`
+DROP COLUMN `student_id`,
+DROP INDEX `fk_student_class_room_1_idx` ;
+
+
+ALTER TABLE `eschool`.`proffesore`
+RENAME TO  `eschool`.`professor` ;

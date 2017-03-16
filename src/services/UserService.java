@@ -128,11 +128,11 @@ public class UserService extends AbstractService {
         while (resultset.next()){
             entities.User item = new entities.User();
 
-            item.setId(resultSet.getString("id"));
-            item.setName(resultSet.getString("name"));
-            item.setSurname(resultSet.getString("surname"));
-            item.setUsername(resultSet.getString("username"));
-            item.setPassword(resultSet.getString("password"));
+            item.setId(resultset.getString("id"));
+            item.setName(resultset.getString("name"));
+            item.setSurname(resultset.getString("surname"));
+            item.setUsername(resultset.getString("username"));
+            item.setPassword(resultset.getString("password"));
             item.setBirthday(resultset.getDate("birthday"));
             if (resultset.getString("gender")
                     .equalsIgnoreCase("F")) {
@@ -140,9 +140,9 @@ public class UserService extends AbstractService {
             } else {
                 item.setGender(Gender.M);
             }
-            item.setAddress(resultSet.getString("address"));
-            item.setEmail(resultSet.getString("email"));
-            item.setMob(resultSet.getString("mob"));
+            item.setAddress(resultset.getString("address"));
+            item.setEmail(resultset.getString("email"));
+            item.setMob(resultset.getString("mob"));
 
             items.add(item);
 
