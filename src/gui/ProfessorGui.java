@@ -45,7 +45,7 @@ public class ProfessorGui extends JFrame{
     private void loadTypes(){
         List<ProfessorType> professorTypeList = ProfessorTypeService.getAll();
 
-        cbType.removeAllItems();;
+        cbType.removeAllItems();
 
         for (ProfessorType professorType : professorTypeList) {
             cbType.addItem(professorType.getType());

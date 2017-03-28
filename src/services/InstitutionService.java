@@ -96,9 +96,8 @@ public class InstitutionService extends AbstractService{
         List<Institution> institutions = getAll();
 
         for(Institution institution : institutions){
-            institution.setStudents(
-                    UserService.getAllByType(
-                            institution.getId(), "student"));
+            institution.setStudents(UserService.getAllByType(
+                    institution.getId(), "student"));
             institution.setProfessors(UserService.getAllByType(
                     institution.getId(), "proffesore"));
             institution.setAssistants(UserService.getAllByType(
@@ -140,10 +139,9 @@ public class InstitutionService extends AbstractService{
             item.setEmail(resultSet.getString("email"));
             item.setMob(resultSet.getString("mob"));
             item.setWebsite(resultSet.getString("website"));
-            item.setInstitutionType(
-                    InstitutionTypeService.getById(
-                    resultSet.getString("institution_type_id"
+            item.setInstitutionType(InstitutionTypeService.getById(resultSet.getString("institution_type_id"
                     ), connection, preparedStatement, resultSet));
+
 
             items.add(item);
         }

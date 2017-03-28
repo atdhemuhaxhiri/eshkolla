@@ -11,16 +11,16 @@ import java.util.UUID;
  */
 public class ProfessorTypeTest {
     public static void main(String[] args){
-        testInsert();
-        testUpdate();
-        testDelete();
+//        testInsert();
+//        testUpdate();
+//        testDelete();
         testGetById();
-        testGetAll();
+//        testGetAll();
     }
     public static void testInsert(){
         ProfessorType professorType = new ProfessorType();
         professorType.setId(UUID.randomUUID().toString());
-        professorType.setDescription("");
+        professorType.setDescription("aaaaaa");
         if (ProfessorTypeService.insert(professorType) > 0){
             System.out.println("Recordi u insertu me sukses");
         } else {

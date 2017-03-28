@@ -100,6 +100,11 @@ public class GradeBookService extends AbstractService {
 
             item.setId(resultSet.getString("id"));
             item.setGrade(resultSet.getInt("grade"));
+            item.setStudent(UserService.getById(resultSet.getString("student")));
+            item.setProfessor(ProfessorService.getById(resultSet.getString("professor")));
+            item.setSubject(SubjectService.getById(resultSet.getString("subject")));
+
+
 
             items.add(item);
         }

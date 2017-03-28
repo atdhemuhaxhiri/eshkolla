@@ -7,6 +7,7 @@ import services.UserService;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Admin on 3/5/2017.
@@ -14,10 +15,10 @@ import java.util.List;
 
 public class UserTest {
     public static void main(String[] args){
-        testGetAll();
+//        testGetAll();
 //        testInsert();
 
-        testUpdate();
+//        testUpdate();
 //        testDelete();
 
 //        testGetById();
@@ -27,9 +28,9 @@ public class UserTest {
 
     private static void testInsert(){
         User user = new User();
-        user.setId("a6f1aec8-4f33-422f-86dc-7a1df461bb97");
-//        user.setId(UUID.randomUUID().toString());
-        user.setName("ireje");
+ //       user.setId("a6f1aec8-4f33-422f-86dc-7a1df461bb97");
+        user.setId(UUID.randomUUID().toString());
+        user.setName("aaaaaaaa");
         user.setSurname("erktre");
         user.setUsername("FSH");
         user.setPassword("fatos");
@@ -97,7 +98,7 @@ public class UserTest {
     }
 
     private static void testGetById(){
-        User user = UserService.getById("c619ffa4-06f8-443a-a549-84c4315a63b9");
+        User user = UserService.getById("a6f1aec8-4f33-422f-86dc-7a1df461bb97");
         System.out.println(user);
     }
 }

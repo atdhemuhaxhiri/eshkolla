@@ -101,6 +101,8 @@ public class SubjectService extends AbstractService {
 
             item.setId(resultSet.getString("id"));
             item.setName(resultSet.getString("name"));
+            item.setInstitution(InstitutionService.getById(resultSet.getString("institution_id")));
+            item.setSyllabus(SyllabusService.getById(resultSet.getString("syllabus_id")));
 
             items.add(item);
 

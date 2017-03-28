@@ -86,6 +86,7 @@ public class SyllabusService extends AbstractService {
             entities.Syllabus item = new entities.Syllabus();
             item.setId(resultSet.getString("id"));
             item.setLiterature(resultSet.getString("literature"));
+            item.setInstitution(InstitutionService.getById(resultSet.getString("institution_id")));
 //            item.setInstitution(resultSet.getString("Institution"));
             items.add (item);
         }

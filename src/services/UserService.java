@@ -95,10 +95,7 @@ public class UserService extends AbstractService {
         try{
             connection = utilities.Connections.getConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery(
-                    UserQueries.GET_ALL_BY_TYPE
-                            .replace("[ut]", type)
-            .replace("[it]", institutionId));
+            resultSet = statement.executeQuery(UserQueries.GET_ALL_BY_TYPE.replace("[ut]", type).replace("[it]", institutionId));
             return writeResultSet(resultSet);
         }catch (SQLException | ClassNotFoundException a){
             a.printStackTrace();
@@ -134,15 +131,14 @@ public class UserService extends AbstractService {
             item.setUsername(resultset.getString("username"));
             item.setPassword(resultset.getString("password"));
             item.setBirthday(resultset.getDate("birthday"));
-            if (resultset.getString("gender")
-                    .equalsIgnoreCase("F")) {
-                item.setGender(Gender.F);
+            if (resultset.getString("gender").equalsIgnoreCase("F")) {item.setGender(Gender.F);
             } else {
                 item.setGender(Gender.M);
             }
             item.setAddress(resultset.getString("address"));
             item.setEmail(resultset.getString("email"));
             item.setMob(resultset.getString("mob"));
+            item.setUserType(UserTypeService.getById(resultSet.getString("user_type_id")));
 
             items.add(item);
 

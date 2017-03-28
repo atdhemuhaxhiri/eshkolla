@@ -40,6 +40,7 @@ public class InstitutionTypeGui extends JFrame{
 
         pack();
         setSize(400,400);
+        setContentPane(panelMain);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 

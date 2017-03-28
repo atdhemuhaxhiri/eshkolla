@@ -9,10 +9,10 @@ import java.util.UUID;
  */
 public class UserTypeTest {
     public static void main(String[] args){
-       testInsert();
+//       testInsert();
 //        testUpdate();
 //        testDelete();
-//        testGetAll();
+        testGetAll();
 //        testGetById();
     }
 

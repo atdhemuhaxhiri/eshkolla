@@ -95,14 +95,14 @@ public class UserTypeService extends AbstractService{
             close();
         }
     }
-    public static List<entities.UserType> writeResultSet(ResultSet resultSet) throws SQLException{
+    public static List<entities.UserType> writeResultSet(ResultSet resultset) throws SQLException{
         List<entities.UserType> items = new ArrayList<>();
-        while (resultSet.next()){
+        while (resultset.next()){
             entities.UserType item = new entities.UserType();
 
-            item.setId(resultSet.getString("id"));
-            item.setName(resultSet.getString("name"));
-            item.setDescription(resultSet.getString("description"));
+            item.setId(resultset.getString("id"));
+            item.setName(resultset.getString("name"));
+            item.setDescription(resultset.getString("description"));
             items.add(item);
         }
         return items;
