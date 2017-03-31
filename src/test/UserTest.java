@@ -21,8 +21,8 @@ public class UserTest {
 //        testUpdate();
 //        testDelete();
 
-//        testGetById();
-        testGetAll();
+        testGetById();
+//        testGetAll();
     }
 
 
@@ -31,7 +31,7 @@ public class UserTest {
  //       user.setId("a6f1aec8-4f33-422f-86dc-7a1df461bb97");
         user.setId(UUID.randomUUID().toString());
         user.setName("aaaaaaaa");
-        user.setSurname("erktre");
+        user.setSurname("bbbbbbbb");
         user.setUsername("FSH");
         user.setPassword("fatos");
         Calendar c = Calendar.getInstance();
@@ -98,7 +98,7 @@ public class UserTest {
     }
 
     private static void testGetById(){
-        User user = UserService.getById("a6f1aec8-4f33-422f-86dc-7a1df461bb97");
+        User user = UserService.getById("78712254-559b-44f5-b27b-106a54c60ab8");
         System.out.println(user);
     }
 }

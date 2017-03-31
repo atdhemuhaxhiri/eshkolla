@@ -1,10 +1,7 @@
 package test;
 
 import entities.Institution;
-import entities.InstitutionType;
-import entities.User;
 import services.InstitutionService;
-import services.UserService;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,8 +13,8 @@ public class InstitutionTest {
 
 
     public static void main(String[] args){
-//       testInsert();
-       testGetAll();
+       testInsert();
+//       testGetAll();
     }
 
     private static void testInsert(){
@@ -28,7 +25,7 @@ public class InstitutionTest {
         obj.setEmail("hjhj@jkjk.dfvd");
         obj.setMob("32452354325");
         obj.setWebsite("www.ubt.com");
-        obj.setInstitutionType(new InstitutionType("3e08a8b4-0c45-4ef5-9def-e35e723f5097"));
+//        obj.setInstitutionType(new InstitutionType("3e08a8b4-0c45-4ef5-9def-e35e723f5097"));
 
         if (InstitutionService.insert(obj) > 0){
             System.out.println("Ok");
